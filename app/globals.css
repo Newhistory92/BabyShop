@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 120 100% 1%;
+    --card: 0 0% 100%;
+    --card-foreground: 120 100% 1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 120 100% 1%;
+    --primary: 180 92% 83%;
+    --primary-foreground: 120 100% 1%;
+    --secondary: 187 100% 88%;
+    --secondary-foreground: 120 100% 1%;
+    --muted: 351 100% 92%;
+    --muted-foreground: 120 5% 40%;
+    --accent: 351 100% 92%;
+    --accent-foreground: 120 100% 1%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 351 100% 92%;
+    --input: 351 100% 92%;
+    --ring: 180 92% 83%;
+    --radius: 1rem;
+
+    /* Admin panel colors */
+    --admin-bg: 120 4% 17%;
+    --admin-accent: 94 89% 60%;
+    --admin-highlight: 252 100% 71%;
+    --admin-soft: 252 100% 93%;
+    --admin-text: 0 0% 100%;
+    --admin-muted: 120 4% 40%;
+    --admin-border: 120 4% 25%;
+  }
+
+  .dark {
+    --background: 120 100% 1%;
+    --foreground: 0 0% 100%;
+    --card: 120 100% 5%;
+    --card-foreground: 0 0% 100%;
+    --popover: 120 100% 5%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 180 92% 73%;
+    --primary-foreground: 120 100% 1%;
+    --secondary: 187 100% 78%;
+    --secondary-foreground: 120 100% 1%;
+    --muted: 120 100% 10%;
+    --muted-foreground: 0 0% 80%;
+    --accent: 351 100% 82%;
+    --accent-foreground: 120 100% 1%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 120 100% 10%;
+    --input: 120 100% 10%;
+    --ring: 180 92% 73%;
+
+    /* Admin panel colors - dark mode */
+    --admin-bg: 120 4% 12%;
+    --admin-accent: 94 89% 55%;
+    --admin-highlight: 252 100% 65%;
+    --admin-soft: 252 30% 25%;
+    --admin-text: 0 0% 100%;
+    --admin-muted: 120 4% 60%;
+    --admin-border: 120 4% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Estilos personalizados para la aplicación */
+.baby-gradient {
+  @apply bg-gradient-to-r from-[#ACFBEB] to-[#C2EFFF];
+}
+
+.product-card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1 rounded-2xl;
+}
+
+.input-focus {
+  @apply focus:ring-2 focus:ring-primary focus:ring-offset-1 focus:outline-none;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Estilos para el modo oscuro */
+.dark .baby-gradient {
+  @apply bg-gradient-to-r from-[#9AECD9] to-[#A5D9E9];
+}
+
+.dark .product-card-hover {
+  @apply hover:shadow-[#000200]/30;
+}
+
+/* Estilos para secciones con fondo suave */
+.soft-bg {
+  @apply bg-[#FFD4D5] dark:bg-[#000200]/80;
+}
+
+/* Estilos para CTA */
+.cta-button {
+  @apply bg-[#ACFBEB] hover:bg-[#9AECD9] text-[#000200] font-medium px-4 py-2 rounded-full transition-colors;
+}
+
+/* Estilos para tarjetas de producto */
+.product-card {
+  @apply bg-[#FDFFFF] dark:bg-[#000200]/90 rounded-2xl overflow-hidden shadow-sm;
+}
+
+/* Estilos para botones principales */
+.primary-button {
+  @apply bg-[#C2EFFF] hover:bg-[#A5D9E9] text-[#000200] font-medium px-4 py-2 rounded-full transition-colors;
+}
+
+/* Estilos para botones secundarios */
+.secondary-button {
+  @apply bg-[#FFD4D5] hover:bg-[#FFBFC0] text-[#000200] font-medium px-4 py-2 rounded-full transition-colors;
+}
+
+/* Estilos para badges */
+.baby-badge {
+  @apply bg-[#FFD4D5] text-[#000200] text-xs px-2 py-1 rounded-full;
+}
+
+/* Estilos para el panel de administración */
+.admin-sidebar {
+  @apply bg-[#2A2E2A] text-white;
+}
+
+.admin-accent {
+  @apply bg-[#A1F044] text-[#2A2E2A] hover:bg-[#8FDE32] transition-colors;
+}
+
+.admin-highlight {
+  @apply text-[#7F6CFF] hover:text-[#6A59E0] transition-colors;
+}
+
+.admin-card {
+  @apply bg-[#E1DBFF] dark:bg-[#3A3A4C];
+}
+
+.admin-header {
+  @apply bg-white dark:bg-[#2A2E2A] border-b border-[#E1DBFF] dark:border-[#3A3A4C];
+}
+
+.admin-nav-item {
+  @apply flex items-center gap-3 px-3 py-2 rounded-md text-[#E1DBFF] hover:bg-[#3A3E3A] transition-colors;
+}
+
+.admin-nav-item.active {
+  @apply bg-[#3A3E3A] text-[#A1F044];
+}
+
+.admin-button {
+  @apply bg-[#A1F044] text-[#2A2E2A] hover:bg-[#8FDE32] font-medium px-4 py-2 rounded-md transition-colors;
+}
+
+.admin-button-outline {
+  @apply border border-[#A1F044] text-[#A1F044] hover:bg-[#A1F044]/10 font-medium px-4 py-2 rounded-md transition-colors;
+}
+
+.admin-button-secondary {
+  @apply bg-[#7F6CFF] text-white hover:bg-[#6A59E0] font-medium px-4 py-2 rounded-md transition-colors;
+}
+
+.admin-badge {
+  @apply bg-[#E1DBFF] text-[#7F6CFF] text-xs px-2 py-1 rounded-full;
+}
+
+.admin-badge-accent {
+  @apply bg-[#A1F044] text-[#2A2E2A] text-xs px-2 py-1 rounded-full;
+}
+
+.admin-badge-highlight {
+  @apply bg-[#7F6CFF] text-white text-xs px-2 py-1 rounded-full;
+}
+
